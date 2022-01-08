@@ -273,29 +273,44 @@ export async function getProduct(productId) {
     return result;
 }
 
-const productNameCache = {};
-export async function getProductByName(productName) {    
-    if (productNameCache[productName]) return productNameCache[productName];    
+
+export async function getProductByName(productName) {
     let result = {};
-    let url=productName===""?`${NORTHWIND_ODATA_SERVICE}/Products?$top=5`
-                        :`${NORTHWIND_ODATA_SERVICE}/Products?$top=5&$filter=startswith(ProductName, '${productName}')`;
-    const response = await fetch(url,{
-            "method": "GET",
-            "headers": {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        });
-       
-        if(response.ok){ 
-            const product = await response.json();
-            result = product.value.map(pdt => ({
-               productId: pdt.ProductID,
-               productName: pdt.ProductName //todo: add more             
-           }));
-        }  
-   
-   productNameCache[productName] = result.ProductID?result:null;
+    let url = productName === "" ? `${NORTHWIND_ODATA_SERVICE}/Products?$top=5`
+        : `${NORTHWIND_ODATA_SERVICE}/Products?$top=5&$filter=startswith(ProductName, '${productName}')`;
+    const response = await fetch(url, {
+        "method": "GET",
+        "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+    });
+    if (response.ok) {
+        const product = await response.json();
+        result = product.value.map(pdt => ({
+            productId: pdt.ProductID,
+            productName: pdt.ProductName,
+            unitsInStock: pdt.UnitsInStock,
+            categoryId: pdt.CategoryID
+            //todo: add more             
+        }));
+    }
     return result;
+}
+export function updateProductUnitStock(categoryId, productId, unitsInStock) {
+    //product cache
+    if (productCache[productId]) {
+        productCache[productId].unitsInStock = unitsInStock;
+    }
+    //category cache
+    if (categoryCache[categoryId]) {
+        let pdts = categoryCache[categoryId].products;
+        for (var i = 0; i < pdts.length; ++i) {
+            if (pdts[i]['productId'] === productId) {
+                pdts[i]['unitsInStock'] = unitsInStock;
+            }
+        }
+    }
+
 }
 

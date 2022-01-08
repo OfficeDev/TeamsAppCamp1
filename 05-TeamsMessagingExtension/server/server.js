@@ -136,17 +136,34 @@ app.get('/modules/env.js', (req, res) => {
 app.use(express.static('client'));
 
 //Bot code for messaging extension
+
 // Main dialog.
 const stockManagerBot = new StockManagerBot();
 const adapter = new BotFrameworkAdapter({
   appId: process.env.MicrosoftAppId,
   appPassword:process.env.MicrosoftAppPassword
 });
+// Catch-all for errors.
+const onTurnErrorHandler = async (context, error) => {
+  // This check writes out errors to console log .vs. app insights.
+  // NOTE: In production environment, you should consider logging this to Azure
+  //       application insights.
+  console.error(`\n [onTurnError] unhandled error: ${ error }`);
 
-adapter.onTurnError = async (context, error) => {
-  // Catch-all logic for errors.
-  console.log(error);
+  // Send a trace activity, which will be displayed in Bot Framework Emulator
+  await context.sendTraceActivity(
+      'OnTurnError Trace',
+      `${ error }`,
+      'https://www.botframework.com/schemas/error',
+      'TurnError'
+  );
+
+  // Send a message to the user
+  await context.sendActivity('The bot encountered an error or bug.');
+  await context.sendActivity('To continue to run this bot, please fix the bot source code.');
 };
+// Set the onTurnError for the singleton BotFrameworkAdapter.
+adapter.onTurnError = onTurnErrorHandler;
 // Messaging endpoint
 app.post('/api/messages', (req, res) => {
   adapter.processActivity(req, res, async (context) => {
