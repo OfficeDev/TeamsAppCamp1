@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from 'dotenv';
-import {StockManagerBot} from '../client/bot.js';
-import { BotFrameworkAdapter } from 'botbuilder';
+
 import {
   validateEmployeeLogin
 } from './northwindIdentityService.js';
@@ -13,6 +12,9 @@ import {
   getCategory,
   getProduct
 } from './northwindDataService.js';
+import aad from 'azure-ad-jwt';
+import {StockManagerBot} from '../client/bot.js';
+import { BotFrameworkAdapter } from 'botbuilder';
 
 dotenv.config();
 const app = express();
@@ -35,6 +37,43 @@ app.post('/api/validateEmployeeLogin', async (req, res) => {
   }
 
 });
+
+// AAD to Northwind identity mapping is stored here.
+// In a real app, this would be stored in the database
+// or somewhere persistent.
+const idMap = [];
+// Web service validates an Azure AD login
+app.post('/api/validateAadLogin', async (req, res) => {
+
+  try {
+    const audience = `api://${process.env.HOSTNAME}/${process.env.CLIENT_ID}`;
+    const token = req.headers['authorization'].split(' ')[1];
+
+    aad.verify(token, { audience: audience }, (err, result) => {
+      if (result) {
+        const aadUserId = result.oid;
+        let northwindEmployeeId;
+        if (!req.body.employeeId) {
+          // If here, client needs an employee ID, try to map it
+          northwindEmployeeId = idMap[aadUserId];
+        } else {
+          // If here, client is providing an employee ID, add to mapping
+          northwindEmployeeId = req.body.employeeId;
+          idMap[aadUserId] = northwindEmployeeId;
+        }
+        res.send(JSON.stringify({ "employeeId" : northwindEmployeeId }));
+      } else {
+        res.status(401).send('Invalid token');
+      }
+    });
+  }
+  catch (error) {
+      console.log(`Error in /api/validateAadLogin handling: ${error}`);
+      res.status(500).json({ status: 500, statusText: error });
+  }
+
+});
+
 
 // Web service returns a list of employees
 app.get('/api/employees', async (req, res) => {
@@ -128,6 +167,7 @@ app.get('/modules/env.js', (req, res) => {
   res.contentType("application/javascript");
   res.send(`
     export const env = {
+      CLIENT_ID: ${process.env.CLIENT_ID};
     };
   `);
 });

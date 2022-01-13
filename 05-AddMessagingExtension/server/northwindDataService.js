@@ -273,7 +273,6 @@ export async function getProduct(productId) {
     return result;
 }
 
-
 export async function getProductByName(productName) {
     let result = {};
     let url = productName === "" ? `${NORTHWIND_ODATA_SERVICE}/Products?$top=5`
@@ -313,4 +312,5 @@ export function updateProductUnitStock(categoryId, productId, unitsInStock) {
     }
 
 }
+
 

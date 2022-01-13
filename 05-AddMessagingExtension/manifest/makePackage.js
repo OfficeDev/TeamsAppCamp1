@@ -8,8 +8,9 @@ fs.readFile('manifest/manifest.template.json', 'utf-8', (err, data) => {
     if (err) throw err;
 
     Object.keys(process.env).forEach((key) => {
-        if (key.indexOf('TEAMS_APP_ID') === 0 ||   key.indexOf('HOSTNAME') === 0 ||
-            key.indexOf('MicrosoftAppId') === 0) {
+        if (key.indexOf('TEAMS_APP_ID') === 0 ||
+            key.indexOf('HOSTNAME') === 0 ||
+            key.indexOf('CLIENT_ID') === 0) {
             data = data.split(`<${key}>`).join(process.env[key]);
             console.log (`Inserted ${key} value of ${process.env[key]}`);
         }
