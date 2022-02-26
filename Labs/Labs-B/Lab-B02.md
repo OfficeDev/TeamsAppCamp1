@@ -265,7 +265,7 @@ You should generate a different GUID for each application you register; this one
 
 #### Step 4: Update your package.json file
 
-Open the package.json file in your working directory and add a script that will generate the app package. The [script code](../../B02-TeamsApp-BespokeAuth/manifest/makePackage.js) is in the manifest folder you just copied, so we just need to declare it in package.json. This is what `scripts` property should look like when you're done.
+Open the package.json file in your working directory and add a script that will generate the app package. The [script code](../../B02-TeamsApp-BespokeAuth/manifest/makePackage.js) is in the manifest folder you just copied, so we need to declare it in package.json. This is what `scripts` property should look like when you're done.
 
 ~~~json
 "scripts": {
@@ -479,7 +479,7 @@ if (window.location !== window.parent.location) {
 
 #### Step 4: Modify the logoff code
 
-The logoff code simply sets the login cookie to 0 and directs the user back to the login page. To accomodate the application running in Microsoft teams, this function needs to check if it's running in Teams and send the user to the teamsLauncher.html page we created in Step 2.
+The logoff code sets the login cookie to 0 and directs the user back to the login page. To accomodate the application running in Microsoft teams, this function needs to check if it's running in Teams and send the user to the teamsLauncher.html page we created in Step 2.
 
 Open the /client/identity/identityClient.js file in your code editor and add this line at the top.
 

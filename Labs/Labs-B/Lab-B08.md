@@ -385,7 +385,7 @@ Now select "Delegated permissions" 1️⃣ and the one scope exposed by the lice
 
 #### Step 3: Consent to the permission
 
-You have added the permission but nobody has consented to it. Fortunately you're an administrator and can grant your consent from this same screen! Just click the "Grant admin consent for <tenant>" button 1️⃣ and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" 3️⃣ should be displayed for each permission.
+You have added the permission but nobody has consented to it. Fortunately you're an administrator and can grant your consent from this same screen! Select the "Grant admin consent for <tenant>" button 1️⃣ and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" 3️⃣ should be displayed for each permission.
 
 ![Grant consent](../Assets//08-102-Grant-Consent.png)
 
