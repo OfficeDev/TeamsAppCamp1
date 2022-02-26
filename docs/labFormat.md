@@ -29,7 +29,7 @@ Notes look like this:
 > **NOTE:** If you recently created your tenant, the **Teams** l
 ---
 
-Callouts: Please add numbered callouts to your screen shots if users need to click or enter text in a particular spot. Refer to the callouts in the written instructions using the Unicode characters 1️⃣, 2️⃣, 3️⃣, 4️⃣, etc.
+Callouts: Please add numbered callouts to your screen shots if users need to select or enter text in a particular spot. Refer to the callouts in the written instructions using the Unicode characters 1️⃣, 2️⃣, 3️⃣, 4️⃣, etc.
 
 Symbols in code: Please use `monospaced` text for variable names, function names, etc. Reference function names with a pair of parenthesis such as `myFunction()`.
 

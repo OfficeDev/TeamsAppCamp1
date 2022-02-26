@@ -661,7 +661,7 @@ class northwindUserPanel extends HTMLElement {
             `;
 
             const logoutButton = document.getElementById('logout');
-            logoutButton.addEventListener('click', async ev => {
+            logoutButton.addEventListener('select', async ev => {
                 logoff();
             });
         }

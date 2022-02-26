@@ -881,12 +881,14 @@ npm i
 #### Step 2: Create new teams app package
 
 Create updated teams app package by running below script:
+
 ```nodejs
 npm run package
 ```
 
 #### Step 3: Upload the app package
-In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
+
+In the Teams web or desktop UI, select "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
 
 * Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab
 * Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator

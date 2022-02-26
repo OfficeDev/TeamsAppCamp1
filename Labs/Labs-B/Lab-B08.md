@@ -257,7 +257,7 @@ For **domainName** and **directoryId**, please refer to this [article](https://d
 
 * In the same window run `Connect-Graph -Scopes "Application.ReadWrite.All, Directory.AccessAsUser.All DelegatedPermissionGrant.ReadWrite.All Directory.ReadWrite.All"`
 
-* Click **Accept**.
+* Select **Accept**.
 
  ![Graph consent](../Assets/08-001.png)
 
@@ -365,7 +365,7 @@ The licensing web service is secured using Azure AD, so in order to call it the 
 
 #### Step 1: Return to the Northwind Orders app registration
 
-Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
+Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Select "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
 
 ![Return to your app registration](../Assets/03-001-AppRegistrationUpdate-1.png)
 
@@ -373,15 +373,15 @@ Select the app you registered earlier to view the application overview.
 
 #### Step 2: Add permission to call the licensing application
 
-In the left navigation, click "API permissions" 1️⃣ and then "+ Add a permission" 2️⃣.
+In the left navigation, select "API permissions" 1️⃣ and then "+ Add a permission" 2️⃣.
 
 ![Add Permission](../Assets/08-100-Add-Permission-0.png)
 
-In the flyout, select the "My APIs" tab 1️⃣ and then find the licensing service you installed earlier in this lab and click on it. By default, it will be called the "Contoso Monetization Code Sample Web API" 2️⃣.
+In the flyout, select the "My APIs" tab 1️⃣ and then find the licensing service you installed earlier in this lab and select on it. By default, it will be called the "Contoso Monetization Code Sample Web API" 2️⃣.
 
 ![Add permission](../Assets/08-100-Add-Permission.png)
 
-Now select "Delegated permissions" 1️⃣ and the one scope exposed by the licensing web API, "user_impersonation", will be displayed. Check this permission 2️⃣ and click "Add permissions" 3️⃣.
+Now select "Delegated permissions" 1️⃣ and the one scope exposed by the licensing web API, "user_impersonation", will be displayed. Check this permission 2️⃣ and select "Add permissions" 3️⃣.
 
 #### Step 3: Consent to the permission
 
@@ -713,7 +713,7 @@ Browse to https://(resourceMockWebSiteName).azurewebsites.net where (resourceMoc
 > NOTE: The App Source simulator's background color is green to make it easy to see when you are redirected to your app's landing page, which has a blue background.
 ---
 
-Click the "Purchase" button to purchase a subscription to the Northwind Orders Application.
+Select the "Purchase" button to purchase a subscription to the Northwind Orders Application.
 
 ![Run application](../Assets/08-202-RunApp-2.png)
 
@@ -723,7 +723,7 @@ Click the "Purchase" button to purchase a subscription to the Northwind Orders A
 
 Next, the App Source simulator displays the plans available for the offer; the simulator has two hard-coded plans, "SeatBasedPlan" (which uses a [per-user pricing model](https://docs.microsoft.com/azure/marketplace/create-new-saas-offer-plans#define-a-pricing-model)), and a "SiteBasedPlan" (which uses a [flat-rate pricing model](https://docs.microsoft.com/azure/marketplace/plan-saas-offer#saas-pricing-models)). The real App Source would show the plans you had defined in Partner Center.
 
-Since Microsoft Teams only supports the per-user pricing model, choose the "SiteBasedPlan" and click the "Purchase" button. Because this is a simulator, your credit card will not be charged.
+Since Microsoft Teams only supports the per-user pricing model, choose the "SiteBasedPlan" and select the "Purchase" button. Because this is a simulator, your credit card will not be charged.
 
 ![Run application](../Assets/08-203-RunApp-3.png)
 
@@ -733,7 +733,7 @@ The landing page gives the app a chance to interact with the user and capture an
 
 ![Run application](../Assets/08-204-RunApp-4.png)
 
-Once the region has been selected, the sample app shows a welcome page with the user's name, which is obtained by [reading the user's profile with the Microsoft Graph API](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0). Click "License Settings" to view the license assignment screen.
+Once the region has been selected, the sample app shows a welcome page with the user's name, which is obtained by [reading the user's profile with the Microsoft Graph API](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0). Select "License Settings" to view the license assignment screen.
 
 ![Run application](../Assets/08-205-RunApp-5.png)
 
