@@ -20,15 +20,18 @@ We will cover the following concepts in this exercise:
 
 ### Features
 
-- Apply teams styling and themes to your existing application.
+- Apply Teams styling and themes to your existing application.
 
 ### Project structure
+
 The project structure when you start of this lab and end of this lab is as follows.
 Use this depiction for comparison.
 On your left is the contents of folder  `B03-TeamsSSO` and on your right is the contents of folder `B04-StyleAndThemes`.
-- 🆕 New files/folders
 
-- 🔺Files changed
+* 🆕 New files/folders
+
+* 🔺Files changed
+
 <table>
 <tr>
 <th >Project Structure Before </th>

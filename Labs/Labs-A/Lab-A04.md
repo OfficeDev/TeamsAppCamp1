@@ -16,12 +16,12 @@ See project structures comparison in Exercise 1.
 * [Lab A07: Add a Task Module and Deep Link](./Lab-A07.md)
 * [Lab A08: Add support for selling your app in the Microsoft Teams store](./Lab-A08.md)
 
-
 ### Features
 
-- Apply teams styling and themes to your existing application.
+- Apply Teams styling and themes to your existing application.
 
 ### Exercise 1: Code changes
+
 ---
 The project structure when you start of this lab and end of this lab is as follows.
 Use this depiction for comparison.
