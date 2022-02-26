@@ -419,21 +419,23 @@ Copy below import statement to the top of the file:
 ```javascript
 @import "teamstyle.css";
 ```
+
 #### Step 4: Start your local project
 
-Now it's time to run your updated application and run it in Microsoft Teams. Start the application by running below command: 
+Now it's time to run your updated application and run it in Microsoft Teams. Start the application by running below command:
 
 ```nodejs
 npm start
 ```
 
 #### Step 5: Run the application in Teams client
+
 ---
-Once the teams tab app is added, the personal tab will open `My Orders` tab. The application will now have the team's native look and feel.
+Once the Teams tab app is added, the personal tab will open `My Orders` tab. The application will now have Team's native look and feel.
 <img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/04-002-tabstyle.png" alt="Teams tab style">
 [Change themes in teams client.](https://support.microsoft.com/en-us/office/customize-your-teams-theme-51f24f07-1209-4f9d-8788-c0da4d98aede#:~:text=Select%20Settings%20and%20more%20near%20your%20profile%20picture.&text=Select%20General.,will%20change%20to%20your%20selection.)
 
-Notice how the teams tab app also detects and changes it's theme.
+Notice how the Teams tab app also detects and changes its theme.
 <img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/04-003-changetheme.gif" alt="Change theme">
 
 ### References
