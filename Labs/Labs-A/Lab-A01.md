@@ -94,7 +94,7 @@ Eventually you'll be prompted to log into your new tenant. Be sure to use the ne
 
 #### Step 2: Enable Teams application uploads
 
-By default, end users can't upload Teams applications directly; instead an administrator needs to upload them into the enterprise app catalog. In this step you will enable direct uploads to make developement easier and allow installation directly from the Teams user interface.
+By default, end users can't upload Teams applications directly; instead an administrator needs to upload them into the enterprise app catalog. In this step you will enable direct uploads to make development easier and allow installation directly from the Teams user interface.
 
   a. Navigate to [https://admin.microsoft.com/](https://admin.microsoft.com/), which is the Microsoft 365 Admin Center.
 
