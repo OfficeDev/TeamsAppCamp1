@@ -187,11 +187,12 @@ They are the new files and folders that you need to add into the project structu
 
 **1.\client\modules\orderChatCard.js**
 
-Create a new file `orderChatCard.js` in the path `\client\modules`, which is the adaptive card template used by the task module (dialog). You can also use any HTML or JavsScript file for creating task modules. Here we will use adaptive cards.
+Create a new file `orderChatCard.js` in the path `\client\modules`, which is the Adaptive card template used by the task module (dialog). You can also use any HTML or JavsScript file for creating task modules. Here we will use Adaptive cards.
 
 > Adaptive cards are json files but in our project since we own these JSON files and do not use any modern bundlers, we have created JS files out of them for the ease of importing content.
 
 Copy below content into the new file created.
+
 ```javascript
 export default
 {
@@ -301,17 +302,19 @@ export async function getUserDetailsFromAAD(aadUserId) {
     }
 }
 ```
+
 **2.\client\pages\orderDetail.html**
 
-- Add scripts required for adaptive card templating, in the same order.
+- Add scripts required for Adaptive card templating, in the same order.
 Copy below code and paste it above the `<top-nav-panel>` tag.
+
 ```html
 <script src='https://unpkg.com/markdown-it/dist/markdown-it.min.js'></script>
 <script src='https://unpkg.com/adaptive-expressions/lib/browser.js'></script>
 <script src='https://unpkg.com/adaptivecards-templating/dist/adaptivecards-templating.min.js'></script>
 <script src='https://unpkg.com/adaptivecards/dist/adaptivecards.min.js'></script>
- 
 ```
+
 - Add a new button to open the task module (dialog). Add below code above the `<table>` tag.
 ```html
  <button id="btnTaskModule">Chat here</button>

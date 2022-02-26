@@ -32,13 +32,14 @@ We will cover the following concepts in this exercise:
 - In the rich  card, provide an input field and a submit button for users to take action to update stock value of a product in the Northwind Database, all happening in the same conversation
 
 ### Project structure
+
 The project structure when you start of this lab and end of this lab is as follows.
 Use this depiction for comparison.
 On your left is the contents of folder  `A05-ConfigurableTab` and on your right is the contents of folder `A06-MessagingExtension`.
 - 🆕 New files/folders
 
 - 🔺Files changed
-- 
+
 <table>
 <tr>
 <th >Project Structure Before </th>
@@ -162,7 +163,7 @@ A06-MessagingExtension
 ---
 Messaging extensions allow users to bring the application into a conversation in Teams. You can search data in your application, perform actions on them and send back results of your interaction to your application as well as Teams to display all results in a rich card in the conversation.
 
-Since it is a conversation between your application's web service and teams, you'll need a secure communication protocol to send and receive messages like the **Bot Framework**'s messaging schema.
+Since it is a conversation between your application's web service and Teams, you'll need a secure communication protocol to send and receive messages like the **Bot Framework**'s messaging schema.
 
 You'll need to register your web service as a bot in the Bot Framework and update the app manifest file to define your web service so Teams client can know about it.
 
@@ -185,7 +186,7 @@ You'll need to register your web service as a bot in the Bot Framework and updat
 - Select the link **Manage** next to the Microsoft App ID label. This will take us to Certificates & secrets page of the Azure AD app tied to the bot
 - Create a new **Client secret** and copy the `Value` immediately (we will need this later as *BOT_REG_AAD_APP_PASSWORD* in .env file)
 - Go to the registered bot, and on the left navigation select **Channels**.
-- In the given list of channels, select **Microsoft Teams**, agree to the terms if you wish too and select **Agree** to complete the configurations needed for the bot. Select **Save**.
+- In the given list of channels, select **Microsoft Teams**, agree to the terms if you wish to and select **Agree** to complete the configurations needed for the bot. Select **Save**.
 
 > A channel is a connection between a communication application (like teams client here) and a bot. A bot, registered with Azure, uses channels to help the bot communicate with users. You can configure a bot to connect to any of the other standard channels such as Alexa, Facebook Messenger, and Slack.
 
@@ -208,10 +209,10 @@ The terminal will display a screen like below; Save the URL for [Step 3](#ex1-st
 
 #### Step 3: Update the bot registration configuration
 
-- Copy the ngrok url from the above step and go to the bot registered in the Azure portal in [Step 1](#ex1-step1).
+- Copy the ngrok URL from the above step and go to the bot registered in the Azure portal in [Step 1](#ex1-step1).
 - Go to the **Configuration** page from the left navigation.
 - Immediately on the top of the page you will find a field called **Messaging endpoint**.
-- Paste the ngrok url from [Step 2](#ex1-step2) and append `/api/messages` to the url and select **Apply**.
+- Paste the ngrok URL from [Step 2](#ex1-step2) and append `/api/messages` to the url and select **Apply**.
 
 After Step 3, the configuration page of your Azure Bot would look like below.
 <img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/06-001-azbotconfig.png?raw=true" alt="Azure bot configuration"/>
@@ -224,12 +225,12 @@ After Step 3, the configuration page of your Azure Bot would look like below.
 In the project structure, on the right under `A06-MessagingExtension`, you will see emoji 🆕 near the files & folders.
 They are the new files and folders that you need to add into the project structure.
 
-- Create a new `images` folder under `client` folder and copy over the [9 image files](https://github.com/OfficeDev/TeamsAppCamp1/tree/main/A06-MessagingExtension/client/images) needed for the rich adaptive cards to display products' inventory.
+- Create a new `images` folder under `client` folder and copy over the [9 image files](https://github.com/OfficeDev/TeamsAppCamp1/tree/main/A06-MessagingExtension/client/images) needed for the rich Adaptive cards to display products' inventory.
     > Northwind Database does not have nice images for us to show rich cards with images so we have added some images and mapped them to each product using hashing mechanism.
     As long as you got the names of the images right, we don't have to worry what images your want to add in the folder 😉. You can get creative here!
 
 - Create a new `cards` folder under the  `server` folder and add three files `errorCard.js`,`productCard.js` and `stockUpdateSuccess.js`.   
-  They are adaptive cards needed for the messaging extension to display in a conversation based on what state the cards are in.
+  They are Adaptive cards needed for the messaging extension to display in a conversation based on what state the cards are in.
   For e.g. if it's a product card, the bot will use `productCard.js`, if the form is submitted by a user to update the stock value, the bot will use the `stockUpdateSuccess.js` card to let users know the action is completed and incase of any error `errorCard.js` will be displayed.
     
     > Adaptive cards are json files but in our project since we own these JSON files and do not use any modern bundlers, we have created JS files out of them for the ease of importing content.
@@ -838,7 +839,7 @@ app.post('/api/messages', (req, res) => {
 
 **6. package.json**
 
-You'll need to install additional packages for adaptive cards and botbuilder.
+You'll need to install additional packages for Adaptive cards and botbuilder.
 Add below packages into the `package.json` file. Add below packages inside `dependencies`:
 
 ```json
@@ -931,18 +932,16 @@ This is the product card, with a form to fill in and submit, incase the unit sto
 <img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/06-006-productcard.png?raw=true" alt="Product card"/>
 
 Fill in a new value in the form, and select **Update stock**.
+
 <img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/06-007-updatepdt.png?raw=true" alt="Product update form"/>
 
-Once it's success fully updated, the card refreshes to show the new stock value.
+Once it's successfully updated, the card refreshes to show the new stock value.
 <img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/06-008-updated.png?raw=true" alt="Product updated"/>
 
 ### Known issues
 ---
-😔 The rich adaptive card does not preview in compose area in a Microsoft Teams team's context. This is a bug which is currently with the product team. Fixes will be applied in March '22
+😔 The rich Adaptive card does not preview in compose area in a Microsoft Teams team's context. This is a bug which is currently with the product team. Fixes will be applied in March '22
 
 ### References
+
 ---
-
-
-
-

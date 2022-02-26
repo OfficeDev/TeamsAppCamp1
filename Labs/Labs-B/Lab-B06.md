@@ -235,12 +235,12 @@ After Step 3, the configuration page of your Azure Bot would look like below.
 In the project structure, on the right under `B06-MessagingExtension`, you will see emoji 🆕 near the files & folders.
 They are the new files and folders that you need to add into the project structure.
 
-- Create a new `images` folder under `client` and copy over the [9 image files](https://github.com/OfficeDev/TeamsAppCamp1/tree/main/B06-MessagingExtension/client/images) needed for the rich adaptive cards to display products' inventory.
+- Create a new `images` folder under `client` and copy over the [9 image files](https://github.com/OfficeDev/TeamsAppCamp1/tree/main/B06-MessagingExtension/client/images) needed for the rich Adaptive cards to display products' inventory.
     > Northwind Database does not have nice images for us to show rich cards with images so we have added some images and mapped them to each product using hashing mechanism.
     As long as you got the names of the images right, we don't have to worry what images your want to add in the folder 😉. You can get creative here!
 
 - Create a new `cards` folder under the existing `server` folder and add three files `errorCard.js`,`productCard.js` and `stockUpdateSuccess.js`.   
-  They are adaptive cards needed for the messaging extension to display in a conversation based on what state the cards are in.
+  They are Adaptive cards needed for the messaging extension to display in a conversation based on what state the cards are in.
   For e.g. if it's a product card, the bot will use `productCard.js`, if the form is submitted by a user to update the stock value, the bot will use the `stockUpdateSuccess.js` card to let users know the action is completed and incase of any error `errorCard.js` will be displayed.
     
     > Adaptive cards are json files but in our project since we own these JSON files and do not use any modern bundlers, we have created JS files out of them for the ease of importing content.
@@ -851,7 +851,7 @@ app.post('/api/messages', (req, res) => {
 
 **package.json**
 
-You'll need to install additional packages for adaptive cards and botbuilder.
+You'll need to install additional packages for Adaptive cards and botbuilder.
 Add below packages into the `package.json` file.
 
 ```json
@@ -951,12 +951,11 @@ Once it's success fully updated, the card refreshes to show the new stock value.
 <img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/06-008-updated.png?raw=true" alt="Product updated"/>
 
 ### Known issues
+
 ---
-😔 The rich adaptive card does not preview in compose area in a Microsoft Teams team's context. This is a bug which is currently with the product team. Fixes will be applied in March '22
+😔 The rich Adaptive card does not preview in compose area in a Microsoft Teams team's context. This is a bug which is currently with the product team. Fixes will be applied in March '22
 
 ### References
+
 ---
-
-
-
 

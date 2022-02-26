@@ -22,7 +22,7 @@ Both paths have the following labs:
 3. Make the app work with Azure AD SSO in Microsoft Teams
 4. Update the app styling to match Microsoft Teams
 5. Add a configurable tab so your app works in group chats and Teams channels
-6. Add a messaging extension with adaptive cards
+6. Add a messaging extension with Adaptive cards
 7. Use Microsoft Graph, a task module, and deep linking to initiate a chat with a business user
 8. Install a sample licensing service and App Source simulator and add licensing to your app to learn about app monetization
 
