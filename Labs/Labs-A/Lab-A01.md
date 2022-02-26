@@ -187,7 +187,7 @@ The terminal will display a screen like this; note the https forwarding URL for 
 ![ngrok output](../Assets/01-002-ngrok.png)
 
 ---
-> **NOTE:** [This page](../../docs/ngrokReferences.md) lists all the exercies which involve the ngrok URL so you can easily update it if it changes.
+> **NOTE:** [This page](../../docs/ngrokReferences.md) lists all the exercises which involve the ngrok URL so you can easily update it if it changes.
 ---
 
 #### Step 2: Register your application in Azure Active Directory
