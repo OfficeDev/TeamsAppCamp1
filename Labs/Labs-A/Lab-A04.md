@@ -383,7 +383,7 @@ Copy below import statement to the top of the file:
 import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
 ```
 
-- The Teams client supports three themes—light mode, dark mode, and high contrast mode (which is an acceissibility feature for users with low visual acuity). As the users switch the themes, your application should also switch its theme so as to blend in. To detect theme switching in Teams client we'll have to use the global `microsoftTeams`'s context.
+- The Teams client supports three themes—light mode, dark mode, and high contrast mode (which is an accessibility feature for users with low visual acuity). As the users switch the themes, your application should also switch its theme so as to blend in. To detect theme switching in Teams client we'll have to use the global `microsoftTeams`'s context.
 
 - We 'll add a function `setTheme()` to switch the css between the application's native style and the team's themes.
 Copy and paste below code block:
