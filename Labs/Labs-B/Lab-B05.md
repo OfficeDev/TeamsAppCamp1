@@ -353,7 +353,7 @@ Select the Save button to view your new tab.
 
 ![Channel tab](../Assets/05-004-Installed-In-Channel.png)
 
-You can select the talk bubble in the upper left of the screen to open the chat; now people in the channel can chat about your app while they use it! This is a lot easier than navigating back and forth between the tab and the chat.
+You can select the chat icon in the upper left of the screen to open the chat; now people in the channel can chat about your app while they use it! This is a lot easier than navigating back and forth between the tab and the chat.
 
 #### Step 4: Run it again
 
