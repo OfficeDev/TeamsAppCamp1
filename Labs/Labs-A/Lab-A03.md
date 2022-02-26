@@ -23,16 +23,16 @@ Note that as you complete the labs, the original app should still work outside o
 
 In this lab you will learn to:
 
-- Create a Microsoft Teams app manifest and package that can be installed into Teams
-- Update your Azure AD app registration to allow Teams to issue tokens on behalf of your application
-- Use the Microsoft Teams JavaScript SDK to request an Azure AD access token
-- Install and test your application in Microsoft Teams
+* Create a Microsoft Teams app manifest and package that can be installed into Teams
+* Update your Azure AD app registration to allow Teams to issue tokens on behalf of your application
+* Use the Microsoft Teams JavaScript SDK to request an Azure AD access token
+* Install and test your application in Microsoft Teams
 
 ### Features
 
-- Microsoft Teams personal tab application displays the Northwind Orders web application
-- Users sign into the Teams application transparently using Azure AD SSO
-- Application alters its appearance (hides the top navigation) when running in Teams, allowing Teams tab navigation instead
+* Microsoft Teams personal tab application displays the Northwind Orders web application
+* Users sign into the Teams application transparently using Azure AD SSO
+* Application alters its appearance (hides the top navigation) when running in Teams, allowing Teams tab navigation instead
 
 ### Project structure
 
@@ -40,10 +40,9 @@ The project structure when you start of this lab and end of this lab is as follo
 Use this depiction for comparison.
 On your left is the contents of folder  `A01-Start-AAD` and on your right is the contents of folder `A03-TeamsSSO`.
 
-- 🆕 New files/folders
+* 🆕 New files/folders
 
-- 🔺Files changed
-
+* 🔺Files changed
 
 <table>
 <tr>
@@ -136,14 +135,13 @@ A03-TeamsSSO
 </tr>
 </table>
 
-
 ### Exercise 1: Authorize Microsoft Teams to log users into your application
 
 Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this exercise, you'll provide that permission.
 
 #### Step 1: Return to your app registration
 
-Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
+Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Select "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
 
 ![Return to your app registration](../Assets/03-001-AppRegistrationUpdate-1.png)
 
@@ -151,11 +149,11 @@ Select the app you registered earlier to view the application overview.
 
 #### Step 2: Add the Teams client applications
 
-Click "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
+Select "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
 
 ![Open the Expose an API screen](../Assets/03-002-AppRegistrationUpdate-2.png)
 
-Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then click "Add application" 3️⃣ to save your work.
+Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then select "Add application" 3️⃣ to save your work.
 
 Repeat the process for the Teams web application, `5e3ce6c0-2b1f-4285-8d4b-75ee78787346`.
 
@@ -163,7 +161,7 @@ Repeat the process for the Teams web application, `5e3ce6c0-2b1f-4285-8d4b-75ee7
 
 ### Exercise 2: Create the Teams application package
 
-Microsoft Teams applications don't run "inside" of Microsoft Teams, they just appear in the Teams user interface. A tab in Teams is just a web page, which could be hosted anywhere as long as the Teams client can reach it. 
+Microsoft Teams applications don't run "inside" of Microsoft Teams, they just appear in the Teams user interface. A tab in Teams is just a web page, which could be hosted anywhere as long as the Teams client can reach it.
 
 To create a Teams application, you need to create a file called *manifest.json* which contains the information Teams needs to display the app, such as the URL of the Northwind Orders application. This file is placed in a .zip file along with the application icons, and the resulting application package is uploaded into Teams or distributed through the Teams app store.
 
@@ -171,7 +169,7 @@ In this exercise you'll create a manifest.json file and application package for 
 
 #### Step 1: Copy the *manifest* folder to your working directory
 
-Many developers use the [Teams Developer Portal](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/teams-developer-portal) to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
+Many developers use the [Teams Developer Portal](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/teams-developer-portal) to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
 
 Go to your local copy of the `A03-TeamsSSO` folder on your computer and copy the *manifest* folder into the working folder you used in the previous lab. This folder contains a template for building the manifest.json file.
 
@@ -294,7 +292,7 @@ import { inTeams } from '/modules/teamsHelpers.js';
 import 'https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js';
 ~~~
 
-The first import, of course, is the inTeams() function we just added. It's a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) so there is no bundling; the browser will resolve the import at runtime. 
+The first import, of course, is the inTeams() function we just added. It's a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) so there is no bundling; the browser will resolve the import at runtime.
 
 The second import will load the Teams JavaScript SDK, which creates a global object `microsoftTeams` that we can use to access the SDK. You could also load it using a `<script>` tag or, if you bundle your client-side JavaScript, using the [@microsoft/teams-js](https://www.npmjs.com/package/@microsoft/teams-js) npm package.
 
@@ -418,7 +416,7 @@ npm start
 
 #### Step 2: Upload the app package
 
-In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
+In the Teams web or desktop UI, select "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
 
 * Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab
 * Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator
@@ -428,7 +426,7 @@ In this case, choose the first option 3️⃣.
 
 ![Upload the app](../Assets/03-005-InstallApp-1.png)
 
-Navigate to the Northwind.zip file in your manifest directory and upload it. Teams will display the application information; click the "Add" button to install it for your personal use.
+Navigate to the Northwind.zip file in your manifest directory and upload it. Teams will display the application information; select the "Add" button to install it for your personal use.
 
 ![Upload the app](../Assets/03-006-InstallApp-2.png)
 
@@ -449,5 +447,3 @@ For the latest issues, or to file a bug report, see the [github issues list](htt
 ### References
 
 [Single sign-on (SSO) support for Tabs](https://docs.microsoft.com/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso)
-
-

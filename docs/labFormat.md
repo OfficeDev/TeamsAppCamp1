@@ -6,18 +6,21 @@ Trying to be consistent with Dan's tool and to a degree with Learn modules.
 * Exercises always contain steps, which are numbered and would be used in Dan's tool
 
 Include a title at the top of each markdown file:
+
 ## Exercise A01: Start with Azure Active Directory
 
 Section headings look like this, and are not numbered
+
 ### Features
 
 Steps look like this and are numbered
+
 #### Step 1 - App Registration
 
-Tips look like this, with a cool smiley empticon:
+Tips look like this, with a cool smiley emoticon:
 
 ---
-> 😎 DON'T DEVELOP IN PRODUCTION: It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work. 
+> 😎 DON'T DEVELOP IN PRODUCTION: It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work.
 ---
 
 Notes look like this:
@@ -35,4 +38,3 @@ File names: Please [hyperlink](#) to files for easy navigation
 Images : Save your images in a folder in the repo. Please use the image tag and refer the github url of the image asset as shown below. This is to make the images available in Dan's training tool. Relative image URLs do not work there.
 
 `<img src="https://github.com/OfficeDev/TeamsAppCamp1/blob/main/Labs/Assets/06-006-productcard.png?raw=true" alt="Product card"/>`
-

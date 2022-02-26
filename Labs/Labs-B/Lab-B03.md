@@ -156,19 +156,19 @@ In order for users to log into your application with Azure AD, you need to regis
 
  - Navigate to the Microsoft 365 admin center at https://admin.microsoft.com/ and log in as the administrator of your developer tenant.
 
- - In the left navigation, click "Show More" to reveal the full list of admin centers, and then click "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/).
+ - In the left navigation, select "Show More" to reveal the full list of admin centers, and then select "Azure Active Directory". This will bring you to the [Azure AD admin center](https://aad.portal.azure.com/).
 
 ![Navigating to the M365 Admin site](../Assets/01-009-RegisterAADApp-1.png)
 
-- Click "Azure Active Directory" again in the left navigation bar.
+- Select "Azure Active Directory" again in the left navigation bar.
 
 ![Navigating to the M365 Admin site](../Assets/01-010-RegisterAADApp-2.png)
 
-- This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and click "App Registrations" in the navigation bar.
+- This will bring you to the overview of your Azure AD tenant. Note that a "tenant" is a single instance of Azure Active Directory, with its own users, groups, and app registrations. Verify that you're in the developer tenant you just created, and select "App Registrations" in the navigation bar.
 
 ![Opening App Registrations](../Assets/01-011-RegisterAADApp-3.png)
 
-- You will be shown a list of applications (if any) registered in the tenant. Click "+ New Registration" at the top to register a new application.
+- You will be shown a list of applications (if any) registered in the tenant. Select "+ New Registration" at the top to register a new application.
 
 ![Adding a registration](../Assets/01-012-RegisterAADApp-4.png)
 
@@ -179,7 +179,7 @@ You will be presented with the "Register an application" form.
 - Enter a name for your application 1️⃣.
 - Under "Supported account types" select "Accounts in any organizational directory" 2️⃣. This will allow your application to be used in your customer's tenants.
 - Under "Redirect URI", select "Single-page application (SPA)" 3️⃣ and enter the ngrok URL you saved earlier 4️⃣.
-- Click the "Register" button 5️⃣
+- Select the "Register" button 5️⃣
 
 You will be presented with the application overview. There are two values on this screen you need to copy for use later on; those are the Application (client) ID 1️⃣ and the Directory (tenant) ID 2️⃣.
 
@@ -191,9 +191,9 @@ When you've recorded these values, navigate to "Certificates & secrets" 3️⃣.
 
 Now you will create a client secret, which is like a password for your application to use when it needs to authenticate with Azure AD.
 
-- Click "+ New client secret" 1️⃣
+- Select "+ New client secret" 1️⃣
 - Enter a description 2️⃣ and select an expiration date 3️⃣ for your secret 
-- Click "Add" to add your secret. 4️⃣
+- Select "Add" to add your secret. 4️⃣
 
 The secret will be displayed just this once on the "Certificates and secrets" screen. Copy it now and store it in a safe place.
 
@@ -212,11 +212,11 @@ The secret will be displayed just this once on the "Certificates and secrets" sc
 
 The app registration created an identity for your application; now we need to give it permission to call the Microsoft Graph API. The Microsoft Graph is a RESTful API that allows you to access data in Azure AD and Microsoft 365, including Microsoft Teams.
 
-- While still in the app registration, navigate to "API Permissions" 1️⃣ and click "+ Add a permission" 2️⃣.
+- While still in the app registration, navigate to "API Permissions" 1️⃣ and select "+ Add a permission" 2️⃣.
 
 ![Adding a permission](../Assets/01-017-RegisterAADApp-9.png)
 
-On the "Request API permissions" flyout, click "Microsoft Graph". It's hard to miss!
+On the "Request API permissions" flyout, select "Microsoft Graph". It's hard to miss!
 
 ![Adding a permission](../Assets/01-018-RegisterAADApp-10.png)
 
@@ -226,17 +226,17 @@ The Northwind Orders application uses the Employee ID value in each users's Azur
 
 So the application needs to read and write the user's employee ID in Azure AD. Users aren't allowed to overwrite the employeeId field on their own, so the application needs to elevate privileges to save the Northwind employee ID. To do that, the application will use an application permission, "User.ReadWrite.All". For an explanation of application vs. delegated permissions, see [this documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#permission-types) or watch [this video](https://www.youtube.com/watch?v=SaBbfVgqZHc)
 
-Click "Application permissions" to add the required permission.
+Select "Application permissions" to add the required permission.
 
 ![Adding an app permission](../Assets/01-019-RegisterAADApp-10.png)
 
-You will be presented with a long list of objects that the Microsoft Graph can access. Scroll all the way down to the User object, open the twistie 1️⃣, and check the "User.Read.All" permission 2️⃣. Click the "Add Permission" button 3️⃣.
+You will be presented with a long list of objects that the Microsoft Graph can access. Scroll all the way down to the User object, open the twistie 1️⃣, and check the "User.Read.All" permission 2️⃣. Select the "Add Permission" button 3️⃣.
 
 ![Adding User.Read.App permission](../Assets/01-020-RegisterAADApp-11.png)
 
 ### Step 3: Consent to the permission
 
-You have added the permission but nobody has consented to it. If you return to the permission page for your app, you can see that the new permission has not been granted. 1️⃣ To fix this, click the "Grant admin consent for <tenant>" button and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" should be displayed for each permission.
+You have added the permission but nobody has consented to it. If you return to the permission page for your app, you can see that the new permission has not been granted. 1️⃣ To fix this, select the "Grant admin consent for <tenant>" button and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" should be displayed for each permission.
 
 ![Grant consent](../Assets/01-024-RegisterAADApp-15.png)
 
@@ -244,11 +244,11 @@ You have added the permission but nobody has consented to it. If you return to t
 
 The Northwind Orders app is a full stack application, with code running in the web browser and web server. The browser application accesses data by calling a web API on the server side. To allow this, we need to expose an API in our Azure AD application. This will allow the server to validate Azure AD access tokens from the web browser.
 
-Click "Expose an API" 1️⃣ and then "Add a scope"2️⃣. Scopes expose an application's permissions; what you're doing here is adding a permission that your application's browser code can use it when calling the server. 
+Select "Expose an API" 1️⃣ and then "Add a scope"2️⃣. Scopes expose an application's permissions; what you're doing here is adding a permission that your application's browser code can use it when calling the server. 
 
 ![Expose an API](../Assets/01-021-RegisterAADApp-12.png)
 
-On the "Add a scope" flyout, edit the Application ID URI to include your ngrok URL between the "api://" and the client ID. Click the "Save and continue" button to proceed.
+On the "Add a scope" flyout, edit the Application ID URI to include your ngrok URL between the "api://" and the client ID. Select the "Save and continue" button to proceed.
 
 ![Set the App URI](../Assets/01-022-RegisterAADApp-13.png)
 
@@ -259,7 +259,7 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 - Admin consent description: Access Northwind services as the logged in user
 - (skip User consent fields)
 - Ensure the State is set to "Enabled"
-- Click "Add scope"
+- Select "Add scope"
 
 ![Add the scope](../Assets/01-023-RegisterAADApp-14.png)
 
@@ -268,11 +268,11 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 
 Microsoft Teams provides a Single Sign-On (SSO) capability so users are silently logged into your application using the same credentials they used to log into Microsoft Teams. This requires giving Microsoft Teams permission to issue Azure AD tokens on behalf of your application. In this step, you'll provide that permission.
 
-Click "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
+Select "Expose an API" 1️⃣ and then "+ Add a client application" 2️⃣.
 
 ![Open the Expose an API screen](../Assets/03-002-AppRegistrationUpdate-2.png)
 
-Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then click "Add application" 3️⃣ to save your work.
+Paste the ID for the Teams mobile or desktop app, `1fec8e78-bce4-4aaf-ab1b-5451cc387264` into the flyout 1️⃣ and check the scope you created earlier 2️⃣ to allow Teams to issue tokens for that scope. Then select "Add application" 3️⃣ to save your work.
 
 Repeat the process for the Teams web application, `5e3ce6c0-2b1f-4285-8d4b-75ee78787346`.
 
@@ -708,7 +708,7 @@ npm start
 
 #### Step 2: Upload the app package
 
-In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
+In the Teams web or desktop UI, select "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
 
 * Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab
 * Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator
@@ -718,7 +718,7 @@ In this case, choose the first option 3️⃣.
 
 ![Upload the app](../Assets/03-005-InstallApp-1.png)
 
-Navigate to the Northwind.zip file in your manifest directory and upload it. Although the application is already installed, you are providing a newer version so it will update the application. Click the "Add" button to install it for your personal use.
+Navigate to the Northwind.zip file in your manifest directory and upload it. Although the application is already installed, you are providing a newer version so it will update the application. Select the "Add" button to install it for your personal use.
 
 ![Upload the app](../Assets/03-006-InstallApp-2.png)
 

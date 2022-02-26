@@ -15,23 +15,26 @@ In this lab you will build the application you created in Lab B01 into a Microso
 
 In this lab you will learn to:
 
-- Create a Microsoft Teams app manifest and package that can be installed into Teams
-- Use the Teams JavaScript SDK to display a login page in a pop-up window
-- Install and test your application in Microsoft Teams
+* Create a Microsoft Teams app manifest and package that can be installed into Teams
+* Use the Teams JavaScript SDK to display a login page in a pop-up window
+* Install and test your application in Microsoft Teams
 
 ### Features
 
-- Microsoft Teams personal tab application displays the Northwind Orders web application
-- Users sign into the Teams application using the existing Northwind login page
-- Application alters its appearance (hides the top navigation) when running in Teams, allowing Teams tab navigation instead
+* Microsoft Teams personal tab application displays the Northwind Orders web application
+* Users sign into the Teams application using the existing Northwind login page
+* Application alters its appearance (hides the top navigation) when running in Teams, allowing Teams tab navigation instead
 
 ### Project structure
+
 The project structure when you start of this lab and end of this lab is as follows.
 Use this depiction for comparison.
 On your left is the contents of folder  `B01-Start-BespokeAuth` and on your right is the contents of folder `B02-TeamsApp-BespokeAuth`.
-- 🆕 New files/folders
 
-- 🔺Files changed
+* 🆕 New files/folders
+
+* 🔺Files changed
+
 <table>
 <tr>
 <th >Project Structure Before </th>
@@ -131,17 +134,16 @@ B02-TeamsApp-BespokeAuth
 
 ### Exercise 1 Set up your Microsoft 365 Subscription
 
-
 To run your application in Microsoft Teams, you'll need a Microsoft 365 subscription. In this exercise you'll acquire a free developer subscription and configure it so you can easily upload Teams applications.
 
 #### Step 1: Get a tenant
 
 If you don't yet have a tenant, please join the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) to get a free one. Your tenant includes 25 [E5 user licenses](https://www.microsoft.com/microsoft-365/enterprise/compare-office-365-plans) and can be renewed as long as you keep developing!
 
-Click "Join now" to begin.
+Select "Join now" to begin.
 ![Signup](../Assets/01-003-JoinM365DevProgram1.png)
 
-Log in with any Microsoft personal or work and school account, enter your information, and click "Next". You will have an opportunity to choose what kind of "sandbox" you want; the "Instant sandbox" is recommended.
+Log in with any Microsoft personal or work and school account, enter your information, and select "Next". You will have an opportunity to choose what kind of "sandbox" you want; the "Instant sandbox" is recommended.
 
 ![Signup](../Assets/01-004-JoinM365DevProgram2.png)
 
@@ -152,7 +154,7 @@ Remember this information as you'll need it throughout the labs! You will log in
 Eventually you'll be prompted to log into your new tenant. Be sure to use the new administrator credentials you just created, not the ones you used when you signed up for the developer program.
 
 ---
-😎 DON'T DEVELOP IN PRODUCTION: It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work. 
+😎 DON'T DEVELOP IN PRODUCTION: It may be tempting to build solutions right where you work every day, but there are good reasons to have a dedicated dev tenant - and probably additional staging/test tenants. They're free, and you can safely experiment as a tenant admin without risking your production work.
 
 ---
 😎 NAVIGATING MANY TENANTS: Consider creating a browser profile for each tenant that will have its own favorites, stored credentials, and cookies so you can easily swtch between tenants as you work.
@@ -164,17 +166,17 @@ Eventually you'll be prompted to log into your new tenant. Be sure to use the ne
 
 #### Step 2: Enable Teams application uploads
 
-By default, end users can't upload Teams applications directly; instead an administrator needs to upload them into the enterprise app catalog. In this step you will enable direct uploads to make developement easier and allow installation directly from the Teams user interface.
+By default, end users can't upload Teams applications directly; instead an administrator needs to upload them into the enterprise app catalog. In this step you will enable direct uploads to make development easier and allow installation directly from the Teams user interface.
 
-  a. In the left panel of the admin center, click "Show all" to open up the entire navigation
+  a. In the left panel of the admin center, select "Show all" to open up the entire navigation
 
   ![M365 Admin](../Assets/01-005-M365Admin.png)
 
-  When the panel opens, click Teams to open the Microsoft Teams admin center.
+  When the panel opens, select Teams to open the Microsoft Teams admin center.
 
   ![M365 Admin](../Assets/01-006-M365Admin2.png)
 
-  b. In the left of the Microsoft Teams admin center, open the Teams apps accordion 1️⃣ and select Setup Policies 2️⃣. You will see a list of App setup policies. Click the Global (Org-wide default) policy 3️⃣.
+  b. In the left of the Microsoft Teams admin center, open the Teams apps accordion 1️⃣ and select Setup Policies 2️⃣. You will see a list of App setup policies. Select the Global (Org-wide default) policy 3️⃣.
 
   ![Teams admin](../Assets/01-007-TeamsAdmin1.png)
 
@@ -182,13 +184,13 @@ By default, end users can't upload Teams applications directly; instead an admin
 
  ![Teams admin](../Assets/01-008-TeamsAdmin2.png)
 
- Be sure to scroll down and click the "Save" button to persist your change.
+ Be sure to scroll down and select the "Save" button to persist your change.
 
 ![Teams admin](../Assets/01-008-TeamsAdmin2b.png)
 
  We have been working to get this enabled by default on developer tenants, so it may already be set for you. The change can take up to 24 hours to take effect, but usually it's much faster.
 
- ### Exercise 2: Start ngrok and obtain the ngrok URL
+### Exercise 2: Start ngrok and obtain the ngrok URL
 
 #### Step 1: Start ngrok
 
@@ -208,7 +210,7 @@ The terminal will display a screen like this; note the https forwarding URL for 
 
 ### Exercise 3: Create the Teams application package
 
-Microsoft Teams applications don't run "inside" of Microsoft Teams, they just appear in the Teams user interface. A tab in Teams is just a web page which could be hosted anywhere as long as the Teams client can reach it. 
+Microsoft Teams applications don't run "inside" of Microsoft Teams, they just appear in the Teams user interface. A tab in Teams is just a web page which could be hosted anywhere as long as the Teams client can reach it.
 
 To create a Teams application, you need to create a file called *manifest.json* which contains the information Teams needs to display the app, such as the URL of the Northwind Orders application. This file is placed in a .zip file along with the application icons, and the resulting application package is uploaded into Teams or distributed through the Teams app store.
 
@@ -216,7 +218,7 @@ In this exercise you'll create a manifest.json file and application package for 
 
 #### Step 1: Copy the *manifest* folder to your working directory
 
-Many developers use the [Teams Developer Portal](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/teams-developer-portal) to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
+Many developers use the [Teams Developer Portal](https://docs.microsoft.com/microsoftteams/platform/concepts/build-and-test/teams-developer-portal) to create an app package; this is preferred by many enterprise developer and systems integrators. However ISV's may want to keep the app package settings in their source control system, and that's the approach used in the lab. It's just a zip file; you can create it any way you want!
 
 Go to your local copy of the `B02-TeamsApp-BespokeAuth` folder on your computer and copy the *manifest* folder into the working folder you used in the previous lab. This folder contains a template for building the manifest.json file.
 
@@ -309,6 +311,7 @@ If you were to run the application as-is in Microsoft Teams, you'd see this erro
 The reason for this is that most login pages, including this one, contain code to detect if they're running in an IFrame and refuse to work. This is due to security concerns; for example a parent page could overlay content on top of the IFrame to capture the user's password. While the Northwind authentication scheme is for demonstration only and isn't really secure, it does (realistically) refuse to run in IFrame that hosts your Teams tab.
 
 In this exercise you'll add code to move the login page into a separate popup window.
+
 #### Step 1: Add a module with Teams helper functions
 
 Create a file called teamsHelpers.js in the client/modules folder, and paste in this code:
@@ -323,7 +326,7 @@ export async function inTeams() {
 }
 ~~~
 
-Alternately you can copy the file from the B02-TeamsApp-BespokeAuth/client/modules folder into your working folder. 
+Alternately you can copy the file from the B02-TeamsApp-BespokeAuth/client/modules folder into your working folder.
 
 The `inTeams()` function will allow your code to determine if it's running in Microsoft Teams, and is used in this and future labs.
 
@@ -532,7 +535,7 @@ async connectedCallback() {
 ~~~
 
 ---
-> NOTE: Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers. You can learn more [in this article](https://developer.mozilla.org/en-US/docs/Web/Web_Components.)
+> NOTE: Web components are encapsulated custom HTML elements. They're not a Teams thing, nor do they use React or another UI library; they're built right into modern web browsers. You can learn more [in this article](https://developer.mozilla.org/docs/Web/Web_Components.)
 ---
 
 ### Exercise 4: Test your application in Microsoft Teams
@@ -547,7 +550,7 @@ npm start
 
 #### Step 2: Upload the app package
 
-In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
+In the Teams web or desktop UI, select "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
 
 * Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab
 * Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator
@@ -557,7 +560,7 @@ In this case, choose the first option 3️⃣.
 
 ![Upload the app](../Assets/03-005-InstallApp-1.png)
 
-Navigate to the Northwind.zip file in your manifest directory and upload it. Teams will display the application information; click the "Add" button to install it for your personal use.
+Navigate to the Northwind.zip file in your manifest directory and upload it. Teams will display the application information; select the "Add" button to install it for your personal use.
 
 ![Upload the app](../Assets/03-006-InstallApp-2.png)
 
@@ -572,8 +575,5 @@ The application should appear without any login prompt. The app's navigation sho
 The application does not implement paging for large data sets, so lists of orders etc. are limited to the first 10 results.
 
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
+
 ### References
-
-
-
-

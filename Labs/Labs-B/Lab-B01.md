@@ -12,7 +12,7 @@ There are two options for doing the labs:
 
 **This is the very first lab in Path B**, which begins with an application that has its own, bespoke identity system. You will learn a pattern for adding Azure AD authentication for users while maintaining the bespoke identity system's user profiles and authorization. This won't work everywhere but a number of partners have been successful with this kind of approach.
 
-In this lab you will set up the Northwind Orders application, which can be found in the [B01-Start-BespokeAuth](../../B01-Start-BespokeAuth/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application with Azure AD Single Sign-On. 
+In this lab you will set up the Northwind Orders application, which can be found in the [B01-Start-BespokeAuth](../../B01-Start-BespokeAuth/) folder. The labs that follow will lead you step by step into extending the web application to be a Microsoft Teams application with Azure AD Single Sign-On.
 
 * [Lab B01: Setting up the application with Azure AD](./Lab-B01.md) (📍You are here)
 * [Lab B02: Creating a Teams application](./Lab-B02.md)
@@ -25,15 +25,15 @@ In this lab you will set up the Northwind Orders application, which can be found
 
 In this lab you will learn to:
 
-- Run a web application using NodeJS
-- Expose a local web application using ngrok
+* Run a web application using NodeJS
+* Expose a local web application using ngrok
 
 ### Features
 
-- View orders associated with the logged-in user (sales representative)
-- View products by category
-- View product details and orders for a product
-- View order details
+* View orders associated with the logged-in user (sales representative)
+* View products by category
+* View product details and orders for a product
+* View order details
 
 The application is based on the Northwind Traders Database, which is a sample relational database that originally shipped with Microsoft Access. The Northwind Traders Database is now available as a [demonstration OData service](https://services.odata.org/), which is queried in this lab. This is a read-only data source; some of the later exercises appear to update the data but the changes are only stored in the server memory and will only persist until the server is restarted.
 
@@ -75,11 +75,11 @@ The terminal will display a screen like this; note the https forwarding URL for 
 > **NOTE:** [This page](../../docs/ngrokReferences.md) lists all the exercies which involve the ngrok URL so you can easily update it if it changes.
 ---
 
-
 ### Exercise 2: Configure and run the application
+
 #### Step 1: Download the starting application
 
-The starting application is in github at [https://github.com/OfficeDev/TeamsAppCamp1](https://github.com/OfficeDev/TeamsAppCamp1). Click the "Code" button and clone or download the content to your computer.
+The starting application is in github at [https://github.com/OfficeDev/TeamsAppCamp1](https://github.com/OfficeDev/TeamsAppCamp1). Select the "Code" button and clone or download the content to your computer.
 
 ![Download the lab source code](../Assets/01-001-CloneRepo.png)
 
@@ -128,21 +128,21 @@ When you've logged in, you will see the Northwind Orders application. The home p
 
 ![Home page](../Assets/01-040-Run-1.png)
 
-Click "My Orders" in the top navigation bar to view the employee's orders.
+Select "My Orders" in the top navigation bar to view the employee's orders.
 
 ![My Orders page](../Assets/01-041-Run-2.png)
 
-You can click on any order to view the details.
+You can select on any order to view the details.
 
 ![Viewing an order](../Assets/01-042-Run-3.png)
 
-From here you can click on any product to view its details. Much of the data is hyperlinked in this fashion.
+From here you can select on any product to view its details. Much of the data is hyperlinked in this fashion.
 
-You can also click on "Products" in the top navigation to view a list of product categories.
+You can also select on "Products" in the top navigation to view a list of product categories.
 
 ![View product categories](../Assets/01-043-Run-4.png)
 
-From there you can click into a product category to view a list of products, and then you can click into a product to see its details. The product detail page shows all the orders for the product, which leads to a list of orders, and so you can click your way around the sample data.
+From there you can select into a product category to view a list of products, and then you can select into a product to see its details. The product detail page shows all the orders for the product, which leads to a list of orders, and so you can select your way around the sample data.
 
 Try logging out and logging in; you should be able to view the orders for another user based on the employee ID field in the Orders table.
 
@@ -156,8 +156,5 @@ Try logging out and logging in; you should be able to view the orders for anothe
 The application does not implement paging for large data sets, so lists of orders etc. are limited to the first 10 results.
 
 While it will work on mobile devices, the application is not responsive and will not look good on these devices. This will be addressed in a future version of the lab.
+
 ### References
-
-
-
-

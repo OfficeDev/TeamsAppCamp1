@@ -8,9 +8,9 @@ Up to this point, the Northwind Teams application has had only "static" tabs. St
 
 "Configurable" tabs are for sharing; they run in Teams channels and group chats. The idea is that a group of people shares the configuration, so there's shared context. In this lab you will add a configurable tab that displays a specific product category so, for example, the Beverages product team can share a tab with a list of beverages. This saves them navigating through the app every time they want to see Beverages.
 
-The Teams manifest for a static tab includes the tab's URL, but for a configurable tab it includes the URL of the tab's [_configuration page_](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page). The configuration page will allow users to configure what information is shown on the tab; based on this the configuration page saves the actual tab URL and a unique _entity ID_ using the Teams JavaScript SDK. This URL can lead users directly to the information they want, or the tab to a page that looks at the entity ID to decide what to display. In this lab, the tab URL will display the product category directly, so the entity ID isn't really used. 
+The Teams manifest for a static tab includes the tab's URL, but for a configurable tab it includes the URL of the tab's [_configuration page_](https://docs.microsoft.com/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page). The configuration page will allow users to configure what information is shown on the tab; based on this the configuration page saves the actual tab URL and a unique _entity ID_ using the Teams JavaScript SDK. This URL can lead users directly to the information they want, or the tab to a page that looks at the entity ID to decide what to display. In this lab, the tab URL will display the product category directly, so the entity ID isn't really used.
 
-Configuration pages don't just work for tabs; they can also be used as setup pages for [Messaging Extensions](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/messaging-extension-v3/search-extensions#handle-onquerysettingsurl-and-onsettingsupdate-events) or [Connectors](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-creating#integrate-the-configuration-experience), so they're worth learning about!
+Configuration pages don't just work for tabs; they can also be used as setup pages for [Messaging Extensions](https://docs.microsoft.com/microsoftteams/platform/resources/messaging-extension-v3/search-extensions#handle-onquerysettingsurl-and-onsettingsupdate-events) or [Connectors](https://docs.microsoft.com/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-creating#integrate-the-configuration-experience), so they're worth learning about!
 
 * [Lab A01: Setting up the application with Azure AD](./Lab-A01.md)
 * Lab A02: (there is no lab A02; please skip to A03)
@@ -23,12 +23,12 @@ Configuration pages don't just work for tabs; they can also be used as setup pag
 
 In this lab you will learn to:
 
-- Create a configurable tab with accompanying configuration page
-- Add a configurable page to your Teams application
+* Create a configurable tab with accompanying configuration page
+* Add a configurable page to your Teams application
 
 ### Features
 
-- Microsoft Teams configurable tab to display a product category
+* Microsoft Teams configurable tab to display a product category
 
 ### Project structure
 
@@ -36,10 +36,9 @@ The project structure when you start of this lab and end of this lab is as follo
 Use this depiction for comparison.
 On your left is the contents of folder  `A04-StyleAndThemes` and on your right is the contents of folder `A05-ConfigurableTab`.
 
-- 🆕 New files/folders
+* 🆕 New files/folders
 
-- 🔺Files changed
-
+* 🔺Files changed
 
 <table>
 <tr>
@@ -141,7 +140,6 @@ A05-ConfigurableTab
 </td>
 </tr>
 </table>
-
 
 ### Exercise 1: Create a configuration page
 
@@ -291,15 +289,15 @@ This will generate a new manifest.json file and a new application package (north
 
 #### Step 1: Ensure you have a Team to test in
 
-If you already have a Team you can test with, skip to the next step. If not, begin by clicking the "Join or create a Team" button 1️⃣ and then "Create a team" 2️⃣.
+If you already have a Team you can test with, skip to the next step. If not, begin by selecting the "Join or create a Team" button 1️⃣ and then "Create a team" 2️⃣.
 
 ![Create a Team](../Assets/05-005-Create-a-team-1.png)
 
-Click "From scratch".
+Select "From scratch".
 
 ![Create a Team](../Assets/05-006-Create-a-team-2.png)
 
-Then click your choice of "Private" or "Public". "Org-wide" is OK too but be aware this only works for Teams administrators and you can only have 5 of them in your tenant.
+Then select your choice of "Private" or "Public". "Org-wide" is OK too but be aware this only works for Teams administrators and you can only have 5 of them in your tenant.
 
 ![Create a Team](../Assets/05-007-Create-a-team-3.png)
 
@@ -307,7 +305,7 @@ Then follow the wizard to give your Team a name and description and optionally a
 
 #### Step 2: Run your app
 
-In your working directory run this command to start the application 
+In your working directory run this command to start the application
 
 ~~~shell
 npm start
@@ -315,7 +313,7 @@ npm start
 
 #### Step 3: Upload the app package
 
-In the Teams web or desktop UI, click "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
+In the Teams web or desktop UI, select "Apps" in the sidebar 1️⃣, then "Manage your apps" 2️⃣. At this point you have three choices:
 
 * Upload a custom app (upload the app for yourself or a specific team or group chat) - this only appears if you have enabled "Upload custom apps" in your setup policy; this was a step in the previous lab
 * Upload an app to your org's app catalog (upload the app for use within your organization) - this only appears if you are a tenant administrator
@@ -325,13 +323,13 @@ In this case, choose the first option 3️⃣.
 
 ![Upload the app](../Assets/03-005-InstallApp-1.png)
 
-Navigate to the Northwind.zip file in your manifest directory and upload it. Although the application is already installed, you are providing a newer version so it will update the application. 
+Navigate to the Northwind.zip file in your manifest directory and upload it. Although the application is already installed, you are providing a newer version so it will update the application.
 
-This time the "Add" button will have a little arrow in it so you can add the app to a particular Team or Group Chat. Click the little arrow 1️⃣ and then "Add to a Team" 2️⃣.
+This time the "Add" button will have a little arrow in it so you can add the app to a particular Team or Group Chat. Select the little arrow 1️⃣ and then "Add to a Team" 2️⃣.
 
 ![Add to Teams Channel](../Assets/05-001-Install-In-Channel.png)
 
-Type the name of a Team or channel in the search box 1️⃣ and select the one where you want to add the application 2️⃣. This will enable the "Set up" button 3️⃣; click it to add your app to the Team.
+Type the name of a Team or channel in the search box 1️⃣ and select the one where you want to add the application 2️⃣. This will enable the "Set up" button 3️⃣; select it to add your app to the Team.
 
 ![Add to Teams Channel](../Assets/05-002-Install-In-Channel-2.png)
 
@@ -339,15 +337,15 @@ You should now see your configuration page, which provides the ability to select
 
 ![Configuration page](../Assets/05-003-Install-In-Channel-3.png)
 
-Click the Save button to view your new tab.
+Select the Save button to view your new tab.
 
 ![Channel tab](../Assets/05-004-Installed-In-Channel.png)
 
-You can click the talk bubble in the upper left of the screen to open the chat; now people in the channel can chat about your app while they use it! This is a lot easier than navigating back and forth between the tab and the chat.
+You can select the talk bubble in the upper left of the screen to open the chat; now people in the channel can chat about your app while they use it! This is a lot easier than navigating back and forth between the tab and the chat.
 
 #### Step 4: Run it again
 
-If you click the small arrow to the right of the tab name and choose "Settings", Teams will open the configuration page again so you can change the settings. This is possible because in the the Teams app manifest the `"canUpdateConfiguration"` property is set to true; if you set it to false, the settings option will not be available.
+If you select the small arrow to the right of the tab name and choose "Settings", Teams will open the configuration page again so you can change the settings. This is possible because in the the Teams app manifest the `"canUpdateConfiguration"` property is set to true; if you set it to false, the settings option will not be available.
 
 ### Known issues
 
@@ -355,6 +353,4 @@ For the latest issues, or to file a bug report, see the [github issues list](htt
 
 ### References
 
-* [Create a configuration page](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page)
-
-
+* [Create a configuration page](https://docs.microsoft.com/microsoftteams/platform/tabs/how-to/create-tab-pages/configuration-page)

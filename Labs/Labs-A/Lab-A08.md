@@ -4,7 +4,6 @@
 
 This lab is part of Path A, which begins with a Northwind Orders application that already uses Azure AD.
 
-
 * [Lab A01: Setting up the application with Azure AD](./Lab-A01.md)
 * Lab A02: (there is no lab A02; please skip to A03)
 * [Lab A03: Creating a Teams app with Azure ADO SSO](./Lab-A03.md)
@@ -16,22 +15,25 @@ This lab is part of Path A, which begins with a Northwind Orders application tha
 
 In this lab you will learn to:
 
-- Deploy the App Source simulator and sample SaaS fulfillment and licensing service in Microsoft Azure so you can test it
-- Observe the interactions between App Source and a SaaS landing page in a simulated environment
-- Connect the Northwind Orders application to the sample SaaS licensing service to enforce licenses for Microsoft Teams users
+* Deploy the App Source simulator and sample SaaS fulfillment and licensing service in Microsoft Azure so you can test it
+* Observe the interactions between App Source and a SaaS landing page in a simulated environment
+* Connect the Northwind Orders application to the sample SaaS licensing service to enforce licenses for Microsoft Teams users
 
 ### Features
 
-- App Source simulator where a customer can "purchase" a subscription to your application
-- Sample web service that fulfills this purchase and manages licenses for Microsoft Teams users to use the Northwind Orders application
-- Northwind Orders application checks to ensure Microsoft Teams users are licensed or displays an error page
+* App Source simulator where a customer can "purchase" a subscription to your application
+* Sample web service that fulfills this purchase and manages licenses for Microsoft Teams users to use the Northwind Orders application
+* Northwind Orders application checks to ensure Microsoft Teams users are licensed or displays an error page
 
 ### Project structure
+
 The project structure when you start of this lab and end of this lab is as follows.
 Use this depiction for comparison.
-- 🆕 New files/folders
 
-- 🔺Files changed
+* 🆕 New files/folders
+
+* 🔺Files changed
+
 <table>
 <tr>
 <th>Project Structure Before </th>
@@ -171,49 +173,49 @@ A07-TaskModule
 </tr>
 </table>
 
-
 ### Exercise 1: Download and install the monetization sample
 
-To complete this lab you'll need to set up a mock App source simulator, as we cannot test apps in Microsoft's real App source. You will also need a sample SaaS fulfillment and licensing service in Azure which can be later replaced by your company's services. 
+To complete this lab you'll need to set up a mock App source simulator, as we cannot test apps in Microsoft's real App source. You will also need a sample SaaS fulfillment and licensing service in Azure which can be later replaced by your company's services.
 
 To help you succeed at this, we have set up some scripts that you can run in PowerShell in order to deploy the needed resources in Azure as well as get your mock simulator and licensing services up and running in few minutes.
 
-In this exercise you'll create three Azure Active Directory applications and their supporting infrastructure using automated deployment scripts called [ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview).
+In this exercise you'll create three Azure Active Directory applications and their supporting infrastructure using automated deployment scripts called [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 
-- Contoso Monetization Code Sample Web App
-- Contoso Monetization Code Sample Web API
-- Contoso Monetization Code Sample App source
+* Contoso Monetization Code Sample Web App
+* Contoso Monetization Code Sample Web API
+* Contoso Monetization Code Sample App source
 
- #### Step 1: Install the prerequisites
+#### Step 1: Install the prerequisites
 
 > You would not come this far without Microsoft365 developer tenant as Global Admin and an Azure subscription. Below are the rest of the prerequisites.
- 
-- Install [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/tag/v7.1.4)
 
-- Install the following PowerShell modules:
-  - [Microsoft Graph PowerShell SDK](https://github.com/microsoftgraph/msgraph-sdk-powershell#powershell-gallery)
+* Install [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/tag/v7.1.4)
+
+* Install the following PowerShell modules:
+  * [Microsoft Graph PowerShell SDK](https://github.com/microsoftgraph/msgraph-sdk-powershell#powershell-gallery)
 
       ``` command
       Install-Module Microsoft.Graph -AllowClobber -Force
       ```
 
-  - [Azure Az PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-6.4.0#installation)
+  * [Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-6.4.0#installation)
 
       ``` command
       Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -AllowClobber -Force 
       ```
-- Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1)
+
+* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1)
 
 OPTIONAL: If you want to run these applications locally or modify them, you may find these tools helpful:
 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
    >**Note:** use **Visual Studio Installer** to install the following development toolsets:
-  - ASP.NET and web development
-  - Azure development
-  - Office/SharePoint development
-  - .NET cross-platform development
+  * ASP.NET and web development
+  * Azure development
+  * Office/SharePoint development
+  * .NET cross-platform development
 
-- Install [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-developer-pack-offline-installer)
+* Install [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-developer-pack-offline-installer)
 
 #### Step 2:  Download the source code needed to be deployed
 
@@ -222,27 +224,27 @@ Clone or download the project into your local machine.
 
 #### Step 3:  Get everything ready to run ARM template
 
-- In the project you just downloaded in Step 2, go to folder `office-add-in-saas-monetization-sample/Deployment_SaaS_Resources/`.
-- Open the `ARMParameters.json` file and update the following parameters with values you choose:
-    - webAppSiteName
-    - webApiSiteName
-    - resourceMockWebSiteName
-    - domainName
-    - directoryId (Directory (tenant) ID)
-    - sqlAdministratorLogin
-    - sqlAdministratorLoginPassword
-    - sqlMockDatabaseName
-    - sqlSampleDatabaseName
-    
+* In the project you just downloaded in Step 2, go to folder `office-add-in-saas-monetization-sample/Deployment_SaaS_Resources/`.
+* Open the `ARMParameters.json` file and update the following parameters with values you choose:
+    * webAppSiteName
+    * webApiSiteName
+    * resourceMockWebSiteName
+    * domainName
+    * directoryId (Directory (tenant) ID)
+    * sqlAdministratorLogin
+    * sqlAdministratorLoginPassword
+    * sqlMockDatabaseName
+    * sqlSampleDatabaseName
+
 > Leave the rest of the configuration in file `ARMParameters.json` as is, this will be automatically filled in after scripts deploy the resources.
 You need to make sure enter a unique name for each web app and web site in the parameter list shown below because the script will create many Azure web apps and sites and each one must have a unique name.  All of the parameters that correspond to web apps and sites in the following list end in **SiteName**.
-For **domainName** and **directoryId**, please refer to this [article](https://docs.microsoft.com/en-us/partner-center/find-ids-and-domain-names#find-the-microsoft-azure-ad-tenant-id-and-primary-domain-name) to find your Microsoft Azure AD tenant ID and primary domain name.
+For **domainName** and **directoryId**, please refer to this [article](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-microsoft-azure-ad-tenant-id-and-primary-domain-name) to find your Microsoft Azure AD tenant ID and primary domain name.
 
-- In a Powershell 7 window, change to the **.\Deployment_SaaS_Resources** directory.
+* In a Powershell 7 window, change to the **.\Deployment_SaaS_Resources** directory.
 
-- In the same window run `Connect-Graph -Scopes "Application.ReadWrite.All, Directory.AccessAsUser.All DelegatedPermissionGrant.ReadWrite.All Directory.ReadWrite.All"`
+* In the same window run `Connect-Graph -Scopes "Application.ReadWrite.All, Directory.AccessAsUser.All DelegatedPermissionGrant.ReadWrite.All Directory.ReadWrite.All"`
 
-- Click **Accept**.
+* Select **Accept**.
 
  ![Graph consent](../Assets/08-001.png)
 
@@ -250,20 +252,22 @@ Once accepted, the browser will redirect and show below message. You can now clo
 
  ![Graph consent redirect](../Assets/08-001-1.png)
 
-> What this step does is add `Microsoft Graph PowerShell` in Azure Active Directory under [Enterprise Applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal) with the necessary permissions so we can create the needed applications for this particular exercise using its commands.
+> What this step does is add `Microsoft Graph PowerShell` in Azure Active Directory under [Enterprise Applications](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) with the necessary permissions so we can create the needed applications for this particular exercise using its commands.
 
-- In the same window run `.\InstallApps.ps1`
+* In the same window run `.\InstallApps.ps1`
 
-> You might get a warning as shown below. And it depends on the execution policy settings in the machine. 
+> You might get a warning as shown below. And it depends on the execution policy settings in the machine.
 
  ![execution policy](../Assets/08-001-2.png)
 
-Let's set it to be `bypass` for now. But please read more on Execution policies [here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2).
+Let's set it to be `bypass` for now. But please read more on Execution policies [here](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2).
 
 Run below script:
+
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
+
 Now re-run `.\InstallApps.ps1`
 
 The script should now run to create all three applications in Azure AD. At the end of the script, your command line should display below information.:
@@ -273,8 +277,8 @@ By default it is `centralus` but you can change it to `eastus` which works on bo
 
  ![app id secret](../Assets/08-002.png)
 
-- Copy the values from the output and later you will need  these values to update the code and .env file for deploying Add-ins. These values will also be pre-populated in `ARMParameters.json`. Do not change this file.
-- Notice how the `ARMParameters.json` file is now updated with the values of applications deployed.
+* Copy the values from the output and later you will need  these values to update the code and .env file for deploying Add-ins. These values will also be pre-populated in `ARMParameters.json`. Do not change this file.
+* Notice how the `ARMParameters.json` file is now updated with the values of applications deployed.
 
 #### Step 4:  Deploy the ARM template with PowerShell
 
@@ -288,7 +292,7 @@ You can now close the browser and continue with the PowerShell command line. You
 
 ![AZ CLI](../Assets/08-003.png)
 
-Run the script `.\DeployTemplate.ps1`. When prompted, enter the name of the resource group to create. 
+Run the script `.\DeployTemplate.ps1`. When prompted, enter the name of the resource group to create.
 
 ![AZ CLI](../Assets/08-004-1.png)
 
@@ -311,17 +315,15 @@ You should see three apps as shown in the screen below:
 
 Now let's deploy the server side code for these three applications.
 
-- In the command line, change to the **.\MonetizationCodeSample** directory.
+* In the command line, change to the **.\MonetizationCodeSample** directory.
 
-- Run the script `.\PublishSaaSApps.ps1`.
+* Run the script `.\PublishSaaSApps.ps1`.
 
-- When prompted, enter the same resource group name.
+* When prompted, enter the same resource group name.
 
 You will see the source code in your local machine getting built and packaged.
 
   ![Build Apps](../Assets/08-007.png)
-
-
 
 > **Note:** You may see some warnings about file expiration, please ignore.
 
@@ -329,10 +331,10 @@ The final messages may look like this:
 
  ![publish Apps](../Assets/08-008.png)
 
-
-#### Step 6: Update .env file with deployed resources.
+#### Step 6: Update .env file with deployed resources
 
 Add below entries into .env files in your working folder where you've done Labs A01-A07. Add below two keys, and replace the values &lt;webApiSiteName&gt; and &lt;webApiClientId&gt; with the values from your `ARMParameters.json` file:
+
 ```
  SAAS_API=https://(webApiSiteName).azurewebsites.net/api/Subscriptions/CheckOrActivateLicense
  SAAS_SCOPES=api://(webApiClientId)/user_impersonation
@@ -350,7 +352,7 @@ The licensing web service is secured using Azure AD, so in order to call it the 
 
 #### Step 1: Return to the Northwind Orders app registration
 
-Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Click "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
+Return to the [Azure AD admin portal](https://aad.portal.azure.com/) and make sure you're logged in as the administrator of your development tenant. Select "Azure Active Directory" 1️⃣ and then "App Registrations" 2️⃣.
 
 ![Return to your app registration](../Assets/03-001-AppRegistrationUpdate-1.png)
 
@@ -358,19 +360,19 @@ Select the app you registered earlier to view the application overview.
 
 #### Step 2: Add permission to call the licensing application
 
-In the left navigation, click "API permissions" 1️⃣ and then "+ Add a permission" 2️⃣.
+In the left navigation, select "API permissions" 1️⃣ and then "+ Add a permission" 2️⃣.
 
 ![Add Permission](../Assets/08-100-Add-Permission-0.png)
 
-In the flyout, select the "My APIs" tab 1️⃣ and then find the licensing service you installed earlier in this lab and click on it. By default, it will be called the "Contoso Monetization Code Sample Web API" 2️⃣.
+In the flyout, select the "My APIs" tab 1️⃣ and then find the licensing service you installed earlier in this lab and select on it. By default, it will be called the "Contoso Monetization Code Sample Web API" 2️⃣.
 
 ![Add permission](../Assets/08-100-Add-Permission.png)
 
-Now select "Delegated permissions" 1️⃣ and the one scope exposed by the licensing web API, "user_impersonation", will be displayed. Check this permission 2️⃣ and click "Add permissions" 3️⃣.
+Now select "Delegated permissions" 1️⃣ and the one scope exposed by the licensing web API, "user_impersonation", will be displayed. Check this permission 2️⃣ and select "Add permissions" 3️⃣.
 
 #### Step 3: Consent to the permission
 
-You have added the permission but nobody has consented to it. Fortunately you're an administrator and can grant your consent from this same screen! Just click the "Grant admin consent for <tenant>" button 1️⃣ and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" 3️⃣ should be displayed for each permission.
+You have added the permission but nobody has consented to it. Fortunately you're an administrator and can grant your consent from this same screen! Just select the "Grant admin consent for <tenant>" button 1️⃣ and then agree to grant the consent 2️⃣. When this is complete, the message "Granted for <tenant>" 3️⃣ should be displayed for each permission.
 
 ![Grant consent](../Assets//08-102-Grant-Consent.png)
 
@@ -380,7 +382,7 @@ You have added the permission but nobody has consented to it. Fortunately you're
 
 In your working folder, create a new file /server/validateLicenseService.js and paste in this code (or copy the file from [here](../../A08-Monetization/server/northwindLicenseService.js)).
 
-~~~javascript
+```javascript
 import aad from 'azure-ad-jwt';
 import fetch from 'node-fetch';
 
@@ -474,7 +476,7 @@ async function getOboAccessToken(clientSideToken) {
 
 In Lab A03, you called the Microsoft Graph API using application permissions. This code calls the licensing service using delegated permissions, meaning that the application is acting on behalf of the user.
 
-To do this, the code uses the [On Behalf Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) to exchange the incoming access token (targeted for the Northwind Orders app) for a new access token that is targeted for the Licensing service application.
+To do this, the code uses the [On Behalf Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) to exchange the incoming access token (targeted for the Northwind Orders app) for a new access token that is targeted for the Licensing service application.
 
 #### Step 2: Add a server side API to validate the user's license
 
@@ -698,7 +700,7 @@ Browse to https://(resourceMockWebSiteName).azurewebsites.net where (resourceMoc
 > NOTE: The App Source simulator's background color is green to make it easy to see when you are redirected to your app's landing page, which has a blue background.
 ---
 
-Click the "Purchase" button to purchase a subscription to the Northwind Orders Application.
+Select the "Purchase" button to purchase a subscription to the Northwind Orders Application.
 
 ![Run application](../Assets/08-202-RunApp-2.png)
 
@@ -706,9 +708,9 @@ Click the "Purchase" button to purchase a subscription to the Northwind Orders A
 > NOTE: The App Source simulator has a mock offer name, "Contoso Apps", rather than showing the "Northwind Orders" app. This is just a constant defined in the monetization project's SaasOfferMockData/Offers.cs file. The real App Source web page will show the application name and other information you configured in Partner Center.
 ---
 
-Next, the App Source simulator displays the plans available for the offer; the simulator has two hard-coded plans, "SeatBasedPlan" (which uses a [per-user pricing model](https://docs.microsoft.com/en-us/azure/marketplace/create-new-saas-offer-plans#define-a-pricing-model)), and a "SiteBasedPlan" (which uses a [flat-rate pricing model](https://docs.microsoft.com/en-us/azure/marketplace/plan-saas-offer#saas-pricing-models)). The real App Source would show the plans you had defined in Partner Center.
+Next, the App Source simulator displays the plans available for the offer; the simulator has two hard-coded plans, "SeatBasedPlan" (which uses a [per-user pricing model](https://docs.microsoft.com/azure/marketplace/create-new-saas-offer-plans#define-a-pricing-model)), and a "SiteBasedPlan" (which uses a [flat-rate pricing model](https://docs.microsoft.com/azure/marketplace/plan-saas-offer#saas-pricing-models)). The real App Source would show the plans you had defined in Partner Center.
 
-Since Microsoft Teams only supports the per-user pricing model, choose the "SiteBasedPlan" and click the "Purchase" button. Because this is a simulator, your credit card will not be charged.
+Since Microsoft Teams only supports the per-user pricing model, choose the "SiteBasedPlan" and select the "Purchase" button. Because this is a simulator, your credit card will not be charged.
 
 ![Run application](../Assets/08-203-RunApp-3.png)
 
@@ -718,7 +720,7 @@ The landing page gives the app a chance to interact with the user and capture an
 
 ![Run application](../Assets/08-204-RunApp-4.png)
 
-Once the region has been selected, the sample app shows a welcome page with the user's name, which is obtained by [reading the user's profile with the Microsoft Graph API](https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0). Click "License Settings" to view the license assignment screen.
+Once the region has been selected, the sample app shows a welcome page with the user's name, which is obtained by [reading the user's profile with the Microsoft Graph API](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0). Select "License Settings" to view the license assignment screen.
 
 ![Run application](../Assets/08-205-RunApp-5.png)
 
@@ -749,6 +751,3 @@ You have completed the Teams App Camp! Thanks very much; we hope this helps in t
 For the latest issues, or to file a bug report, see the [github issues list](https://github.com/OfficeDev/TeamsAppCamp1/issues) for this repository.
 
 ### References
-
-
-
