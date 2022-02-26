@@ -14,7 +14,7 @@ Configuration pages don't just work for tabs; they can also be used as setup pag
 
 * [Lab A01: Setting up the application with Azure AD](./Lab-A01.md)
 * Lab A02: (there is no lab A02; please skip to A03)
-* [Lab A03: Creating a Teams app with Azure ADO SSO](./Lab-A03.md)
+* [Lab A03: Creating a Teams app with Azure AD SSO](./Lab-A03.md)
 * [Lab A04: Teams styling and themes](./Lab-A04.md)
 * [Lab A05: Add a Configurable Tab](./Lab-A05.md) (📍You are here)
 * [Lab A06: Add a Messaging Extension](./Lab-A06.md)

@@ -1,6 +1,7 @@
 ![Teams App Camp](../Assets/code-lab-banner.png)
 
 ## Lab A04: Teams styling and themes
+
 This lab is part of Path A, which begins with a Northwind Orders application that already uses Azure AD.
 
 In this lab you will begin with the application in folder `A03-TeamsSSO`, make changes as per the steps below to achieve what is in the folder `A04-StyleAndThemes`.
@@ -8,7 +9,7 @@ See project structures comparison in Exercise 1.
 
 * [Lab A01: Setting up the application with Azure AD](./Lab-A01.md)
 * [Lab A02: Setting up your Microsoft 365 Tenant](./Lab-A02.md)
-* [Lab A03: Creating a Teams app with Azure ADO SSO](./Lab-A03.md)
+* [Lab A03: Creating a Teams app with Azure AD SSO](./Lab-A03.md)
 * [Lab A04: Teams styling and themes](./Lab-A04.md)(📍You are here)
 * [Lab A05: Add a Configurable Tab](./Lab-A05.md)
 * [Lab A06: Add a Messaging Extension](./Lab-A06.md)
