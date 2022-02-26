@@ -305,7 +305,7 @@ Now that you've defined the application URI, the "Add a scope" flyout will allow
 
 #### Step 1: Download the starting application
 
-The starting application is in github at [https://github.com/OfficeDev/TeamsAppCamp1](https://github.com/OfficeDev/TeamsAppCamp1). Select the "Code" button and clone or download the content to your computer.
+The starting application is in GitHub at [https://github.com/OfficeDev/TeamsAppCamp1](https://github.com/OfficeDev/TeamsAppCamp1). Select the "Code" button and clone or download the content to your computer.
 
 ![Download the lab source code](../Assets/01-001-CloneRepo.png)
 

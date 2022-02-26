@@ -734,7 +734,7 @@ The application should appear without any login prompt. The app's navigation sho
 
 ### Known issues
 
-For the latest issues, or to file a bug report, see the [github issues list](https://github.com/OfficeDev/TeamsAppCamp1/issues) for this repository.
+For the latest issues, or to file a bug report, see the [GitHub issues list](https://github.com/OfficeDev/TeamsAppCamp1/issues) for this repository.
 
 ### References
 
