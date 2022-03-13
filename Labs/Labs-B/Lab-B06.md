@@ -798,24 +798,26 @@ In the function `validateApiRequest()`, add an `if` condition and check if reque
 The final form of the function definition will look as below:
 <pre>
 async function validateApiRequest(req, res, next) {
-    const audience = `api://${process.env.HOSTNAME}/${process.env.CLIENT_ID}`;
-    const token = req.headers['authorization'].split(' ')[1];
-
-    <b>if (req.path==="/messages") {
-        console.log('Request for bot, validation will be performed by Bot Framework Adapter');
-        next();
-    } else {
-       </b> aad.verify(token, { audience: audience }, async (err, result) => {
-            if (result) {
+    try {
+       <b> if (req.path==="/messages") {
+            console.log('Request for bot, validation will be performed by Bot Framework Adapter');
+            next();
+        } else {</b>
+            if (req.cookies.employeeId && parseInt(req.cookies.employeeId) > 0) {
                 console.log(`Validated authentication on /api${req.path}`);
                 next();
             } else {
-            console.error(`Invalid authentication on /api${req.path}: ${err.message}`);
+                console.log(`Invalid authentication on /api${req.path}`);
                 res.status(401).json({ status: 401, statusText: "Access denied" });
             }
-        });
-   <b> }</b>
+       <b> }</b>
+      
+    }
+    catch (error) {
+        res.status(401).json({ status: 401, statusText: error });
+    }
 }
+
 </pre>
 
 **4.server\northwindDataService.js**
