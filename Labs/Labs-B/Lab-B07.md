@@ -411,7 +411,7 @@ async function displayUI() {
             //invoke the task module (dialog)    
             microsoftTeams.tasks.startTask(taskInfo, submitHandler);
         });
-        }
+        
     });</b>
     }
     catch (error) {            // If here, we had some other error
