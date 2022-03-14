@@ -345,14 +345,14 @@ The final messages may look like this:
 
 #### Step 6: Update .env file with deployed resources.
 
-Add below entries into .env files in your working folder where you've done Labs A01-A07. Add below two keys, and replace the values &lt;resourceMockWebSiteName&gt; and &lt;webApiClientId&gt; with the values from your `ARMParameters.json` file:
+Add below entries into .env files in your working folder where you've done Labs A01-A07. Add below two keys, and replace the values &lt;webApiSiteName&gt; and &lt;webApiClientId&gt; with the values from your `ARMParameters.json` file:
 ```
- SAAS_API=https://(resourceMockWebSiteName).azurewebsites.net/api/Subscriptions/CheckOrActivateLicense
+ SAAS_API=https://(webApiSiteName).azurewebsites.net/api/Subscriptions/CheckOrActivateLicense
  SAAS_SCOPES=api://(webApiClientId)/user_impersonation
  OFFER_ID=contoso_o365_addin
 ```
 
-Where the values for `resourceMockWebSiteName` and `webApiClientId` are copied from the file `ARMParameters.json`.
+Where the values for `webApiSiteName` and `webApiClientId` are copied from the file `ARMParameters.json`.
 
 Try visiting the App Source simulator, which is at https://(webAppSiteName).azurewebsites.net; you should be able to log in using your tenant administrator account. Don't purchase a subscription yet, however!
 
