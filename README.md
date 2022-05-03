@@ -1,4 +1,3 @@
-![Teams App Camp](./Labs/Assets/code-lab-banner.png)
 # Microsoft Teams App Camp 2022
 
 The Teams App Camp material has been updated and is now in a [new location](https://github.com/OfficeDev/m365-msteams-northwind-app-samples). The original Teams App Camp files are in a [BACKUP branch](https://github.com/OfficeDev/TeamsAppCamp1/tree/BACKUP) in case you need them, but the new labs are better so we recommend going there unless you're in the middle of a lab or something.
